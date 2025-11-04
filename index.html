@@ -266,6 +266,91 @@
         Parabéns Dory🤍​
     </a>
 </h1>
+ <style>
+        /* 1. ESTILO DO SPLASH SCREEN (COBRE A TELA TODA) */
+        #splash-screen {
+            position: fixed; /* Fixa na tela */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #007bff; /*campo.jpg*/
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999; /* Garante que fique acima de todo o conteúdo */
+            opacity: 1;
+            transition: opacity 3s ease-out, visibility 1s ease-out;
+            visibility: visible;
+        }
+
+        /* 2. ESTILO DO CONTEÚDO DENTRO DO SPLASH */
+        .splash-content h1 {
+            color: white;
+            font-family: Arial, sans-serif;
+            font-size: 2.5em;
+        }
+
+       .splash-content img {
+            width: 720px; /* Tamanho do seu logo */
+            height: auto;
+            margin-bottom: 01px;
+        }
+
+        /* 3. ESTILO PARA ESCONDER O SPLASH */
+        .hidden {
+            opacity: 0 !important;
+            visibility: hidden !important;
+        }
+        
+        /* 4. ESTILO DO CONTEÚDO PRINCIPAL (Exemplo de H2 após o Splash) */
+        #main-content {
+            padding-top: 100px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="splash-screen">
+        <div class="splash-content">
+            <img src="Girasol.png" alt="Logo da Marca">
+            
+            <h1>Carregando Experiência...</h1>
+        </div>
+    </div>
+    
+    
+    <div id="main-content">
+        <h2>Bem-vindo! O carregamento terminou.</h2>
+        <p>Aqui você verá o vídeo, slideshow ou o conteúdo completo da sua página.</p>
+        
+        </div>
+    
+
+    <script>
+        // Oculta o splash screen após um tempo
+        window.addEventListener('load', () => {
+            const splash = document.getElementById('splash-screen');
+            
+            // 3000 milissegundos = 3 segundos
+            const delayTime = 3000; 
+
+            setTimeout(() => {
+                // Adiciona a classe 'hidden' que usa CSS para esconder a tela
+                splash.classList.add('hidden');
+                
+                // Opcional: Você pode remover o elemento completamente após o tempo de transição (1s)
+                // setTimeout(() => {
+                //     splash.style.display = 'none';
+                // }, 1000); 
+
+            }, delayTime);
+        });
+    </script>
+</body>
+</html>
 
 
 
