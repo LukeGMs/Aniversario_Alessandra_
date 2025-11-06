@@ -293,12 +293,14 @@
     <style>
         .container-imagem {
             /* Define o tamanho da caixa que conterá a imagem e o texto */
-            width: 800px; /* Largura que você deseja para a área da imagem */
-            height: 500px; /* Altura que você deseja para a área da imagem */
-            margin: 50px auto; /* Centraliza a caixa na página */
-            position: relative; /* ESSENCIAL: Permite posicionar o texto de forma absoluta */
+            width: 800px;
+            height: 500px;
+            margin: 50px auto;
+            position: relative; 
         
-            background-image:<img> "campo.jpg";
+            /* ✅ CORREÇÃO AQUI: Use url() com o nome do arquivo */
+            background-image: url('campo.jpg'); 
+            
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -306,14 +308,14 @@
 
         .texto-centralizado {
             /* Configurações de posicionamento do texto */
-            position: absolute; /* Posição absoluta dentro do .container-imagem */
-            top: 50%; /* Move o topo do texto para 50% da altura */
-            left: 50%; /* Move o lado esquerdo do texto para 50% da largura */
-            transform: translate(-50%, -50%); /* ESSENCIAL: Ajusta o texto para que o CENTRO dele fique no ponto 50%/50% */
+            position: absolute;
+            top: 50%; 
+            left: 50%;
+            transform: translate(-50%, -50%); 
             
             /* Estilo do Texto */
-            color: white; /* Cor do texto */
-            font-size: 4em; /* Tamanho do texto */
+            color: white;
+            font-size: 4em;
             font-family: 'Arial Black', sans-serif;
             text-align: center;
             
@@ -332,6 +334,3 @@
 
 </body>
 </html>
-
-
-
