@@ -291,75 +291,130 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sua Página com Splash Screen</title>
-
+    <title>Minha Página com Splash Screen</title>
+    
     <style>
-        /* [Seu código CSS para #splash-screen, .hidden, .container-imagem, etc., deve estar aqui] */
-        
+        /* ========================================= */
+        /* 1. ESTILO DO SPLASH SCREEN (COBRE A TELA TODA) */
+        /* ========================================= */
         #splash-screen {
-            position: fixed;
-            /* ... (propriedades de largura e altura) ... */
-            z-index: 9999; 
-            /* ... */
+            position: fixed; /* Fixa na tela */
+            top: 0;
+            left: 0;
+            width: 100%; /* Cobre 100% da largura da tela */
+            height: 100%; /* Cobre 100% da altura da tela */
+            background-color: #007bff; /* Cor de fundo (você pode substituir por 'background-image: url("campo.jpg");') */
+            
+            /* Centraliza o conteúdo (logo e texto) */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            
+            z-index: 9999; /* Garante que fique acima de todo o conteúdo */
+            
+            opacity: 1;
+            /* A transição que faz a tela desaparecer em 1 segundo */
+            transition: opacity 1s ease-out, visibility 1s ease-out;
+            visibility: visible;
         }
-        
+
+        /* 2. ESTILO DO CONTEÚDO DENTRO DO SPLASH */
+        .splash-content img {
+            width: 250px; /* Tamanho do seu logo (ajuste se precisar) */
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        .splash-content h1 {
+            color: white;
+            font-family: Arial, sans-serif;
+            font-size: 2.5em;
+        }
+
+        /* 3. ESTILO PARA ESCONDER O SPLASH */
         .hidden {
             opacity: 0 !important;
             visibility: hidden !important;
         }
-
-        /* [Certifique-se que o CSS do texto sobre a imagem está logo abaixo ou em outro bloco <style>] */
+        
+        /* ========================================= */
+        /* 4. ESTILO DO CONTEÚDO PRINCIPAL (EXEMPLO) */
+        /* ========================================= */
+        #main-content {
+            padding-top: 50px;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+        
+        /* Exemplo de container de imagem de girassóis para depois do splash */
         .container-imagem {
-            width: 800px; 
+            width: 90%; 
+            max-width: 1000px;
             height: 500px; 
             margin: 50px auto; 
             position: relative; 
-            background-image: url('campo.jpg'); /* Verifique este nome/caminho! */
+            
+            /* Usando um link estável de girassóis como exemplo */
+            background-image: url('campo.jpg');
             background-size: cover;
-            /* ... etc ... */
+            background-position: center;
+            background-repeat: no-repeat;
         }
-        
-        /* ... (resto do seu CSS) ... */
-        
+
+        .texto-centralizado {
+            position: absolute; 
+            top: 50%; 
+            left: 50%; 
+            transform: translate(-50%, -50%); 
+            color: yellow; /* Cor do texto sobre os girassóis */
+            font-size: 5em;
+            font-weight: bold;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.9);
+        }
     </style>
 </head>
 <body>
 
     <div id="splash-screen">
         <div class="splash-content">
-            <img src="campo.jpg" alt="Logo da Marca">
-            <h1>Chegou a HORA😉​​🥳​...</h1>
+            <img src="campo.jpg" alt="Parabéns">
+            <h1>Chegou a HORA 😉🥳...</h1>
         </div>
     </div>
     
     <div id="main-content">
+        <h2>🎉 Bem-vindo! 🎉</h2>
+        <p>Este é o conteúdo principal da sua página.</p>
+        
         <div class="container-imagem">
             <div class="texto-centralizado">
-                Sua Escrita Aqui!
+                MEU CAMPO
             </div>
         </div>
+        
     </div>
+    
 
     <script>
         // Oculta o splash screen após um tempo
         window.addEventListener('load', () => {
             const splash = document.getElementById('splash-screen');
                 
-            // 3000 milissegundos = 3 segundos (Edite este valor!)
+            // 3000 milissegundos = 3 segundos (EDITAR O TEMPO AQUI!)
             const delayTime = 3000; 
 
             setTimeout(() => {
+                // Adiciona a classe 'hidden' para iniciar a transição (o fade-out)
                 splash.classList.add('hidden');
-				#splash-screen {
-    transition: opacity 3s ease-out, visibility 3s ease-out;
-} 
+                
+                // Remove o elemento completamente da tela após o fim da transição (1000ms ou 1s)
                 setTimeout(() => {
                     splash.style.display = 'none';
-                }, 1000ms); // 1000ms é o tempo da transição no seu CSS.
+                }, 1000); 
 
             }, delayTime);
         });
     </script>
 </body>
 </html>
-
