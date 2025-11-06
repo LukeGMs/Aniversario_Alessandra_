@@ -286,51 +286,79 @@
         Parabéns Dory🤍​
     </a>
 </h1>
-   <!DOCTYPE html>
-<html>
+<!DOCTYPE html>
+<html lang="pt-br">
 <head>
-    <title>Texto sobre Imagem</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sua Página com Splash Screen</title>
+
     <style>
-        .container-imagem {
-            /* Define o tamanho da caixa que conterá a imagem e o texto */
-            width: 800px;
-            height: 500px;
-            margin: 50px auto;
-            position: relative; 
+        /* [Seu código CSS para #splash-screen, .hidden, .container-imagem, etc., deve estar aqui] */
         
-            /* ✅ CORREÇÃO AQUI: Use url() com o nome do arquivo */
-            background-image: url('campo.jpg'); 
-            
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
+        #splash-screen {
+            position: fixed;
+            /* ... (propriedades de largura e altura) ... */
+            z-index: 9999; 
+            /* ... */
+        }
+        
+        .hidden {
+            opacity: 0 !important;
+            visibility: hidden !important;
         }
 
-        .texto-centralizado {
-            /* Configurações de posicionamento do texto */
-            position: absolute;
-            top: 50%; 
-            left: 50%;
-            transform: translate(-50%, -50%); 
-            
-            /* Estilo do Texto */
-            color: white;
-            font-size: 4em;
-            font-family: 'Arial Black', sans-serif;
-            text-align: center;
-            
-            /* Opcional: Para melhorar a legibilidade sobre a imagem */
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        /* [Certifique-se que o CSS do texto sobre a imagem está logo abaixo ou em outro bloco <style>] */
+        .container-imagem {
+            width: 800px; 
+            height: 500px; 
+            margin: 50px auto; 
+            position: relative; 
+            background-image: url('campo.jpg'); /* Verifique este nome/caminho! */
+            background-size: cover;
+            /* ... etc ... */
         }
+        
+        /* ... (resto do seu CSS) ... */
+        
     </style>
 </head>
 <body>
 
-    <div class="container-imagem">
-        <div class="texto-centralizado">
-            Sua Escrita Aqui!
+    <div id="splash-screen">
+        <div class="splash-content">
+            <img src="campo.jpg" alt="Logo da Marca">
+            <h1>Chegou a HORA😉​​🥳​...</h1>
+        </div>
+    </div>
+    
+    <div id="main-content">
+        <div class="container-imagem">
+            <div class="texto-centralizado">
+                Sua Escrita Aqui!
+            </div>
         </div>
     </div>
 
+    <script>
+        // Oculta o splash screen após um tempo
+        window.addEventListener('load', () => {
+            const splash = document.getElementById('splash-screen');
+                
+            // 3000 milissegundos = 3 segundos (Edite este valor!)
+            const delayTime = 3000; 
+
+            setTimeout(() => {
+                splash.classList.add('hidden');
+                
+                // OPCIONAL: Se o splash continua ocupando espaço (apesar de transparente),
+                // adicione esta linha para removê-lo completamente da visualização após a transição.
+                setTimeout(() => {
+                    splash.style.display = 'none';
+                }, 1000); // 1000ms é o tempo da transição no seu CSS.
+
+            }, delayTime);
+        });
+    </script>
 </body>
 </html>
