@@ -350,15 +350,16 @@
 
             setTimeout(() => {
                 splash.classList.add('hidden');
-                
-                // OPCIONAL: Se o splash continua ocupando espaço (apesar de transparente),
-                // adicione esta linha para removê-lo completamente da visualização após a transição.
+				#splash-screen {
+    transition: opacity 3s ease-out, visibility 3s ease-out;
+} 
                 setTimeout(() => {
                     splash.style.display = 'none';
-                }, 1000); // 1000ms é o tempo da transição no seu CSS.
+                }, 1000ms); // 1000ms é o tempo da transição no seu CSS.
 
             }, delayTime);
         });
     </script>
 </body>
 </html>
+
