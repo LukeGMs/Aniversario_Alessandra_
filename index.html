@@ -328,6 +328,40 @@
 			</p>
 		</div>
 		<h1>
+			<style>
+        /* Define a animação de piscar */
+        @keyframes piscar {
+            0%, 100% { 
+                opacity: 1; /* Totalmente visível no início e no fim */
+            }
+            50% { 
+                opacity: 0; /* Totalmente invisível na metade do tempo */
+            }
+        }
+
+        /* Estilo da escrita que vai piscar */
+        .texto-piscante {
+            color: red; /* Cor do texto (escolha uma cor que chame atenção!) */
+            font-size: 2em;
+            font-weight: bold;
+            text-align: center;
+            padding: 20px;
+            
+            /* Aplica a animação: nome, duração, repetição */
+            animation-name: piscar;
+            animation-duration: 1s; /* Duração de 1 segundo para um ciclo */
+            animation-iteration-count: infinite; /* ESSENCIAL: Repete infinitamente */
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Centraliza na tela para visualização */
+            margin: 0;
+        }
+    </style>
     <a href="https://fãdegreysanatomy.my.canva.site/" target="_blank" style="text-decoration: none; color: #333;">
         ⚠️​➡️		Parabéns Dory🤍		​⬅️​⚠️​
     </a>
@@ -420,6 +454,7 @@
     </script>
 </body>
 </html>
+
 
 
 
