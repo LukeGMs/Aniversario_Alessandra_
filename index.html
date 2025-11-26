@@ -328,11 +328,54 @@
 			</p>
 		</div>
 		
-		<h1>
+		<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Texto em Movimento</title>
+    
+    <style>
+        /* 1. KEYFRAMES: Animação de Mover (move horizontalmente para frente e para trás) */
+        @keyframes mover {
+            0% { transform: translateX(0); }
+            50% { transform: translateX(5px); } /* Move 5 pixels para a direita */
+            100% { transform: translateX(0); }
+        }
 
-    <a href="https://fãdegreysanatomy.my.canva.site/" target="_blank" style="text-decoration: none; color: #333;">
-        ⚠️​➡️		Parabéns Dory🤍		​⬅️​⚠️​
-    </a>
+        /* 2. ESTILO DO TÍTULO (Onde a animação de movimento é aplicada) */
+        .titulo-animado {
+            /* Aplica SOMENTE a animação de mover */
+            animation: mover 2s infinite alternate; /* 2 segundos de duração, infinito, vai e volta */
+            
+            /* Estilos de Aparência */
+            color: #333; 
+            text-decoration: none; 
+            font-size: 2em; /* Tamanho para destaque */
+            font-weight: bold;
+            display: inline-block; /* Essencial para que a animação 'transform' funcione */
+        }
+        
+        /* Estilo para centralizar o exemplo na página */
+        body {
+            font-family: Arial, sans-serif;
+            padding-top: 50px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>
+        <a href="https://fãdegreysanatomy.my.canva.site/" 
+           target="_blank" 
+           class="titulo-animado">
+            ⚠️➡️ Parabéns Dory🤍 ⬅️⚠️
+        </a>
+    </h1>
+
+</body>
+</html>
 </h1>
 </head>
 <!DOCTYPE html>
@@ -423,6 +466,7 @@
     </script>
 </body>
 </html>
+
 
 
 
