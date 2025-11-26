@@ -327,12 +327,34 @@
 				Filha você é muito Importante para mim, Deus Abençoe você filha sempre estarei aqui com você, conte comigo para tudo eu sempre vou estar aqui Sandra.
 			</p>
 		</div>
+		<style>
+		/* 1. KEYFRAMES: Animação de Mover (move horizontalmente para frente e para trás) */
+@keyframes mover {
+    0% { transform: translateX(0); }
+    50% { transform: translateX(7px); } /* Move 7 pixels para a direita */
+    100% { transform: translateX(0); }
+}
+
+/* 2. ESTILO DA ESCRITA (ONDE A ANIMAÇÃO É APLICADA) */
+.titulo-animado {
+    /* Aplica a animação de mover: 1.5s de duração, infinito, vai e volta */
+    animation: mover 1.5s infinite alternate; 
+    
+    /* ESSENCIAL: Permite que o 'transform' funcione no texto */
+    display: inline-block; 
+    
+    /* Garante a aparência original (removendo a decoração de link) */
+    text-decoration: none; 
+    color: #333; /* Cor preta/cinza escura, ajuste se necessário */
+    font-weight: bold;
+}
+	</style>
 	<html>
 </head>
 <body>
 
     <h1>
-        <a href="https://fãdegreysanatomy.my.canva.site/" 
+		<a href="https://fãdegreysanatomy.my.canva.site/" 
            target="_blank" 
            class="titulo-animado">
             ⚠️➡️ Parabéns Dory🤍 ⬅️⚠️
@@ -431,6 +453,7 @@
     </script>
 </body>
 </html>
+
 
 
 
