@@ -180,6 +180,82 @@
         <div class="secao">
             <h2>Galeria de Mometos</h2>
             <div class="galeria">
+				<div id="modal-imagem" class="modal">
+    <span class="fechar" onclick="fecharModal()">&times;</span>
+    
+    <img class="modal-conteudo" id="img-ampliada">
+    
+    <div id="modal-legenda"></div>
+</div>
+				<style>/* ========================================= */
+/* ESTILOS DO MODAL (LIGHTBOX) */
+/* ========================================= */
+.modal {
+    display: none; /* Escondido por padrão */
+    position: fixed; 
+    z-index: 10000; /* Fica acima de tudo, inclusive do splash */
+    padding-top: 60px; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; /* Permite rolar se a imagem for muito grande */
+    background-color: rgb(0,0,0); /* Cor de fundo preta */
+    background-color: rgba(0,0,0,0.9); /* Preto com transparência */
+}
+
+/* Imagem dentro do Modal */
+.modal-conteudo {
+    margin: auto;
+    display: block;
+    width: 80%; /* Largura máxima da imagem na tela */
+    max-width: 900px;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Botão de Fechar (o X) */
+.fechar {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+    z-index: 10001;
+}
+
+.fechar:hover,
+.fechar:focus {
+    color: #bbb;
+    text-decoration: none;
+} </style>
+				// =========================================
+// FUNÇÕES DO MODAL (LIGHTBOX) - ADICIONAR DENTRO DE <script>
+// =========================================
+
+const modal = document.getElementById("modal-imagem");
+const imgAmpliada = document.getElementById("img-ampliada");
+
+// Função para abrir o modal
+function abrirModal(srcDaImagem) {
+    modal.style.display = "block";
+    imgAmpliada.src = srcDaImagem;
+}
+
+// Função para fechar o modal
+function fecharModal() {
+    modal.style.display = "none";
+}
+
+// Fechar o modal ao clicar fora da imagem
+window.onclick = function(event) {
+    if (event.target == modal) {
+        fecharModal();
+    }
+}
                     <figure>
                         <img src="pescaria.jpg.JPG" alt="Pescando Juntos">
                         <figcaption>Primeira Pesca Juntos</figcaption>
@@ -451,6 +527,7 @@
     </script>
 </body>
 </html>
+
 
 
 
