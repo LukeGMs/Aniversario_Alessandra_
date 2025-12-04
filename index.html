@@ -3,447 +3,463 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bem-vindo ao nosso QR Code!</title>
+    <title>Para Alessandra, com Amor - 18 Anos</title>
+    
+    <link rel="preload" as="image" href="campo.jpg">
+
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
     <style>
+        /* ================= VARIAVEIS E RESET ================= */
+        :root {
+            /* Nova paleta romântica */
+            --cor-fundo-dark: #2a0a0a; /* Vinho profundo */
+            --cor-fundo-light: #fffafb; /* Creme rosado */
+            --cor-texto-dark: #4a2c2c;
+            --cor-texto-light: #f8f1f1;
+            --cor-primaria: #c21e56; /* Rosa profundo elegante */
+            --cor-ouro: #d4af37; /* Dourado para acentos */
+            --cor-destaque: #ff4d6d; /* Vermelho rosado vibrante */
+            --cor-acao-gradiente: linear-gradient(135deg, #ff4d6d, #c21e56);
+        }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Poppins', sans-serif; /* Fonte moderna e limpa para leitura */
             margin: 0;
             padding: 0;
-            background-color: #ff0000;
-            color: #333;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
+            background: linear-gradient(135deg, var(--cor-fundo-dark), #461111);
+            color: var(--cor-texto-dark);
+            line-height: 1.7;
+            overflow-x: hidden;
         }
-        .container {
-            background-color: white;
-            padding: 40px 30px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            max-width: 80%;
-        }
-        h1 {
-            color: #ff0000; 
-                        margin-bottom: 10px;
-        }
-        p {
-            font-size: 1.1em;
-            color: #555;
-            margin-bottom: 25px;
-        }
-        .call-to-action {
-            background-color: #28a745; /* Verde para ação */
-            color: white;
-            padding: 12px 25px;
-            border: none;
-            border-radius: 8px;
-            text-decoration: none;
-            font-size: 1.2em;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        .call-to-action:hover {
-            background-color: #218838;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1>Bem-vindo!</h1>
-        <p>Parabéns Amor 18 Anos!</p>
-        <p>Aqui está algumas coisas que tenho certeza que serão inesquecíveis.
-		💭​😉​</p>
-    </div>
-<!-- Code injected by live-server -->
-<script>
-	// <![CDATA[  <-- For SVG support
-	if ('WebSocket' in window) {
-		(function () {
-			function refreshCSS() {
-				var sheets = [].slice.call(document.getElementsByTagName("link"));
-				var head = document.getElementsByTagName("head")[0];
-				for (var i = 0; i < sheets.length; ++i) {
-					var elem = sheets[i];
-					var parent = elem.parentElement || head;
-					parent.removeChild(elem);
-					var rel = elem.rel;
-					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
-						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
-						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
-					}
-					parent.appendChild(elem);
-				}
-			}
-			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
-			var address = protocol + window.location.host + window.location.pathname + '/ws';
-			var socket = new WebSocket(address);
-			socket.onmessage = function (msg) {
-				if (msg.data == 'reload') window.location.reload();
-				else if (msg.data == 'refreshcss') refreshCSS();
-			};
-			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
-				console.log('Live reload enabled.');
-				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
-			}
-		})();
-	}
-	else {
-		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
-	}
-	// ]]>
-</script>
-</body>
 
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lembranças da Alessandra 18 anos de Vida</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
-            background-color: #1d214b;
-            color: #000000;
-            line-height: 1.6;
+        /* ================= SPLASH SCREEN ROMÂNTICO ================= */
+        #splash-screen {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: 9999;
+            background-color: var(--cor-fundo-dark);
+            /* Adiciona uma superposição escura e avermelhada sobre a imagem */
+            background: linear-gradient(rgba(42, 10, 10, 0.7), rgba(70, 17, 17, 0.8)), url('campo.jpg'); 
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1), visibility 1s ease-out;
         }
+
+        .splash-title {
+            color: var(--cor-ouro);
+            font-family: 'Dancing Script', cursive; /* Fonte manuscrita */
+            font-size: clamp(3em, 8vw, 5em);
+            font-weight: 700;
+            text-align: center;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+            padding: 30px;
+            /* Animação de batimento cardíaco */
+            animation: heartbeat 1.5s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
+        }
+
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            10% { transform: scale(1.05); }
+            20% { transform: scale(1); }
+            30% { transform: scale(1.05); }
+            40% { transform: scale(1); }
+            100% { transform: scale(1); }
+        }
+
+        /* ================= CONTEÚDO PRINCIPAL ================= */
         .container {
             max-width: 900px;
-            margin: 0 auto;
-            background-color: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 40px auto;
+            background-color: var(--cor-fundo-light);
+            padding: 50px;
+            border-radius: 25px;
+            /* Sombra suave e brilho dourado */
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4), inset 0 0 0 2px rgba(212, 175, 55, 0.1);
+            position: relative;
+            overflow: hidden;
         }
+
+        /* Detalhe decorativo no topo do container */
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 6px;
+            background: var(--cor-acao-gradiente);
+        }
+
         h1 {
-            color: #007bff;
-            border-bottom: 2px solid #eee;
-            padding-bottom: 10px;
+            font-family: 'Playfair Display', serif;
+            color: var(--cor-primaria);
+            font-size: 2.5em;
             text-align: center;
+            margin-bottom: 30px;
+            position: relative;
         }
-        .secao {
-            margin-top: 25px;
-            padding: 15px 0;
+        
+        /* Pequeno coração abaixo do título principal */
+        h1::after {
+            content: '♥';
+            display: block;
+            font-size: 30px;
+            color: var(--cor-destaque);
+            margin-top: 10px;
+            font-family: 'Dancing Script';
         }
+
         h2 {
-            color: #c71d1d;
-            margin-bottom: 10px;
+            font-family: 'Playfair Display', serif;
+            color: var(--cor-fundo-dark);
+            margin-bottom: 25px;
+            text-align: center;
+            font-weight: 700;
+            font-size: 1.8em;
         }
+
+        .texto-destaque {
+            background: #fff0f3; /* Fundo rosado muito suave */
+            padding: 35px;
+            border-radius: 15px;
+            border: 2px solid rgba(194, 30, 86, 0.1);
+            margin: 40px 0;
+            text-align: center;
+            font-size: 1.2em;
+            color: #6d3b47;
+            box-shadow: 0 5px 15px rgba(194, 30, 86, 0.05);
+        }
+        
+        .texto-destaque p:first-child {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.8em;
+            color: var(--cor-primaria);
+            margin-bottom: 15px;
+        }
+
+        /* ================= GALERIA & IMAGENS ================= */
         .galeria {
             display: flex;
             flex-wrap: wrap;
-            gap: 20px;
+            gap: 25px;
             justify-content: center;
-            margin-top: 15px;
+            margin-top: 30px;
         }
+
+        .galeria figure {
+            margin: 0;
+            width: 100%;
+            max-width: 250px;
+            background: #fff;
+            padding: 12px;
+            border-radius: 15px;
+            /* Sombra e borda sutil dourada */
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08), 0 0 0 1px rgba(212, 175, 55, 0.2);
+            text-align: center;
+            transition: all 0.4s ease;
+            cursor: zoom-in;
+        }
+
+        .galeria figure:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(194, 30, 86, 0.2), 0 0 0 2px rgba(212, 175, 55, 0.4);
+        }
+
         .galeria img {
             width: 100%;
-            max-width: 250px; /* Define o tamanho máximo da imagem */
             height: auto;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            aspect-ratio: 3/4; 
+            object-fit: cover;
+            display: block;
+            filter: brightness(1.02); /* Um leve brilho nas fotos */
         }
-        .texto-destaque {
-            background-color: #ddddddcc;
-            padding: 15px;
-            border-left: 5px solid #ff0707;
-             border-right: 5px solid #ff0707;
-            margin-top: 20px;
+
+        figcaption {
+            margin-top: 12px;
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.3em;
+            color: var(--cor-primaria);
+            font-weight: 600;
         }
-    </style>
-	</head>
-	<body>
-    <div class="container">
-        <h1>Lembranças da Alessandra 18 anos de Vida</h1>
-        <p class="texto-destaque">
-            Bom aqui esta a página de lembranças, O destino será momentos que marcaram 
-            e Textos com muitos sentimentos....
-        <div class="secao">
-            <h2> Oque ela sgnifica para você, ela é tudo pra mim </h2>
-            <div class="galeria">
-                    <figure>
-                        <img src="bety.jpg.JPG" alt="Beijo">
-                        <figcaption>Te Amo Filha😘</figcaption>
-             <div class="container">
-        <p>Dona Bety♡</p>
-	    <p>Você é minha querida filha, Minha companheira de todas as horas.💖</p>
-    	</div>
-            <p class="text-align: justify;">
-             Parabéns Dory, você realize todos seus sonhos e continue sendo uma mulher incrível 
-             igual você é, saiba que Eu te amo muito sempre que precisar estarei aqui para oque der e vier, Eu e Você para sempre.💘​ </p>
-        </div>
-        <div class="secao">
-            <h2>Galeria de Mometos</h2>
-            <div class="galeria">
-                    <figure>
-                        <img src="pescaria.jpg.JPG" alt="Pescando Juntos">
-                        <figcaption>Primeira Pesca Juntos</figcaption>
-                    </figure>
-                    <figure>
-                        <img src="momentos.jpg" alt="Eu Te Amo">
-                        <figcaption>Momentos especiais Eu Te Amo</figcaption>
-                    </figure>
-                    <figure>
-                        <img src="cinema.jpg.JPG" alt="Nosso Passeio">
-                        <figcaption>Primeira vez saindo juntos</figcaption>
-                        <figcaption>Primeira vez juntos no cinema</figcaption>
-                    </figure>
-                    <figure>
-                        <img src="frase.jpg.JPG" alt="Um lindo Momento Juntos">
-                        <figcaption>Eu te amo♥️</figcaption>
-                    </figure>
-                     <figure>
-                        <img src="Beijo.jpg.JPG" alt="HeHeHeHeHeHeHeHeHe">
-                        <figcaption>Aquela foto marcante</figcaption>
-                    </figure>
-				    <figure>
-                        <img src="muitxo.jpg.JPG" alt="EU e Voce">
-                        <figcaption>HaHaHaHaHaHaHaHaHa</figcaption>
-                    </figure>
-					<figure>
-						<img src="filinha.jpg.PNG" alt="Filha">
-						<figcaption>Filha♥️</figcaption>
-					</figure>
-					<figure>
-						<img src="betyele.jpg.PNG" alt="😍😍">
-						<figcaption>TE AMO Lê😍</figcaption>
-					</figure>
-					<figure>
-						<img src="engracado.jpg.JPG" alt="HAHAHAHA">
-						<figcaption>Engraçadinha</figcaption>
-					</figure>
-					 <figure>
-                        <img src="Beleza.JPG" alt="LINDAA">
-                        <figcaption>È Lindaa É Muitxo Linda</figcaption>
-                    </figure>
-				 	<figure>
-                        <img src="Bigodinho.JPG" alt=".">
-	                        <figcaption>Bigodinho</figcaption>
-                    </figure>
-					<figure>
-                        <img src="Empé.PNG" alt=".">
-	                        <figcaption>Mocinha🙃</figcaption>
-                    </figure>
-					<figure>
-                        <img src="rosto.JPG" alt=".">
-	                        <figcaption>🙃</figcaption>
-                    </figure>
-					<figure>
-                        <img src="Pé.PNG" alt=".">
-	                        <figcaption>💞​</figcaption>
-                    </figure>
-					<figure>
-                        <img src="Familia.PNG" alt=".">
-	                        <figcaption>Family​</figcaption>
-                    </figure>
-					<figure>
-                        <img src="irmao.JPG" alt=".">
-	                        <figcaption>Irmão​</figcaption>
-                    </figure>
-					<figure>
-                        <img src="BoloRosa.PNG" alt=".">
-	                        <figcaption>Festinha com seu Bolo Rosa</figcaption>
-                    </figure>
-					<figure>
-                        <img src="Prézinho.PNG" alt=".">
-	                        <figcaption>Brother​</figcaption>
-                    </figure>
-					<figure>
-                        <img src="bebezinha.JPG" alt=".">
-	                        <figcaption>Bebê​</figcaption>
-                    </figure>
-					<figure>
-                        <img src="Vestidinho.JPG" alt=".">
-	                        <figcaption>Niver​</figcaption>
-                    </figure>
-					<figure>
-                        <img src="Primeiro.JPG" alt=".">
-	                        <figcaption>Inesquecível​</figcaption>
-                    </figure>
-					<figure>
-                        <img src="escolinha.JPG" alt=".">
-	                        <figcaption>Sempre Inteligente</figcaption>
-                    </figure>
-					<figure>
-                        <img src="Lindos.jpg" alt=".">
-	                        <figcaption>Dia Lindo, Foto Linda​</figcaption>
-                    </figure>
-					<figure>
-                        <img src="maeefilha.jpg.PNG" alt=".">
-	                        <figcaption>Parabéns Minha Filha</figcaption>
-                    </figure>
-					<figure>
-                        <img src="sorrindo.jpg.JPG" alt=".">
-	                        <figcaption>Oh Sorriso mais encantador!​</figcaption>
-                    </figure>
-					<figure>
-                        <img src="bonita.jpg.JPG" alt=".">
-	                        <figcaption>Mdss 😻​</figcaption>
-                    </figure>
-					<figure>
-                        <img src="Muie.JPG" alt=".">
-	                        <figcaption>Eitxa o Olhar dela ☺️​😍​​</figcaption>
-                    </figure>
-					<figure>
-                        <img src="Vermelho.JPG" alt=".">
-	                        <figcaption>Até que Arrumadinha😎​</figcaption>
-                    </figure>
-					<figure>
-                        <img src="Emanuel.JPG" alt=".">
-	                        <figcaption>​My brother</figcaption>
-                    </figure>
-					<figure>
-                        <img src="sim.JPG" alt=".">
-	                        <figcaption>Hipnotizantezante a mulher que eu Tenho!</figcaption>
-                    </figure>
-            		</div>
-		</div>
-			 <p style="margin-top: 100px; font-family: 'Georgia', serif;">
-   			 Momentos tão especiais e marcantes com pessoas mais que importantes🥰
-			 </p>
-        </div>
-        <div class="secao">
-            <h2>Carta Aberta</h2>
- <p>Mãe para Lê</p>
-			<audio controls>
-   				 <source src="AudioBety.m4a" type="audio/mpeg">
-   				 <source src="AudioBety.mp3" type="audio/ogg">
-   				 Seu navegador não suporta o elemento de áudio.
-			</audio>
-            <p>
-               Hoje é seu aniversário minha filha uma data especial não apenas para você mas também para mim pois recordo um dos momentos mais felizes da minha vida você chegou ao meus braços depois de ter compartilhado existências no meu corpo e no meu coração nasceu um amor que é tão grande Tão imenso que não existe comparação possível com nada feliz aniversário meu amor​
-            <p>
-              Feliz Aniversário Alessandra 18 anos sendo a luz e o sentido de nossas Vidas!
-            </p>
-        </div>
-		<div class="secao">
-			 <h2>Hailton para Sandra</h2>
-			<p>
-				Filha você é muito Importante para mim, Deus Abençoe você filha sempre estarei aqui com você, conte comigo para tudo eu sempre vou estar aqui Sandra.
-			</p>
-		</div>
-		<h1>
-    <a href="https://fãdegreysanatomy.my.canva.site/" target="_blank" style="text-decoration: none; color: #333;">
-        ⚠️​➡️		Parabéns Dory🤍		​⬅️​⚠️​
-    </a>
-</h1>
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Splash Screen com Fundo Total</title>
-    
-    <style>
-        /* ========================================= */
-        /* 1. ESTILO DO SPLASH SCREEN (FUNDO TOTAL) */
-        /* ========================================= */
-        #splash-screen {
+
+        /* ================= LIGHTBOX (ZOOM) ================= */
+        #lightbox {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 9999;
-            opacity: 1;
-            transition: opacity 5s ease-out, visibility 5s ease-out;
-            visibility: visible;
-            
-            /* ✅ NOVO: Configuração da imagem de fundo */
-			background-color: #000000;
-            background-image: url('campo.jpg'); /* Mude para o nome do seu arquivo! */
-            background-size: cover; /* ESSENCIAL: Faz a imagem cobrir toda a tela */
-            background-position: center; /* Centraliza a imagem */
-            background-repeat: no-repeat;
-            
-            /* ✅ NOVO: Centraliza o TÍTULO */
+            z-index: 10000;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-color: rgba(42, 10, 10, 0.95); /* Fundo vinho escuro */
             display: flex;
-            align-items: center;
             justify-content: center;
+            align-items: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s ease;
+            cursor: zoom-out;
+            backdrop-filter: blur(5px); /* Desfoque no fundo */
         }
 
-        /* 2. ESTILO DO TÍTULO POR CIMA DA IMAGEM */
-        .splash-title {
-            color: Black; /* Cor do título */
-            font-family: 'Honk' , sans-serif;
-            font-size: 2em; /* Tamanho do título */
+        #lightbox.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        #lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 12px;
+            box-shadow: 0 0 40px rgba(0,0,0,0.5);
+            border: 3px solid var(--cor-fundo-light);
+            transform: scale(0.9);
+            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); /* Efeito elástico suave */
+        }
+
+        #lightbox.active img {
+            transform: scale(1);
+        }
+
+        /* ================= ÁUDIO & BOTÕES ================= */
+        .audio-container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 50px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin: 20px auto;
+            max-width: 450px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        
+        audio {
+            width: 100%;
+            display: block;
+            outline: none;
+            height: 40px;
+        }
+        /* Tentativa de estilizar o player nativo (funciona melhor no Chrome) */
+        audio::-webkit-media-controls-panel {
+            background-color: #fff0f3;
+        }
+        audio::-webkit-media-controls-play-button {
+             background-color: var(--cor-primaria);
+             border-radius: 50%;
+             color: white;
+        }
+
+        .btn-final {
+            display: block;
             text-align: center;
-			background-color: rgb(255, 255, 255); /* Fundo preto semi-transparente */
-        padding: 10px 20px; /* Espaçamento interno (topo/fundo e laterais) */
-        border-radius: 8px; /* Cantos levemente arredondados */
-        line-height: 1.2; /* Garante que o espaçamento entre linhas seja bom */
+            margin: 60px auto 20px;
+            /* Gradiente romântico */
+            background: var(--cor-acao-gradiente);
+            color: white;
+            padding: 20px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.4em;
+            font-weight: 600;
+            letter-spacing: 1px;
+            box-shadow: 0 10px 30px rgba(194, 30, 86, 0.4);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            /* Animação de pulso suave no botão */
+            animation: gentlePulse 3s infinite ease-in-out;
         }
 
-        /* 3. ESTILO PARA ESCONDER O SPLASH */
+        @keyframes gentlePulse {
+            0% { box-shadow: 0 10px 30px rgba(194, 30, 86, 0.4); }
+            50% { box-shadow: 0 15px 40px rgba(194, 30, 86, 0.7); }
+            100% { box-shadow: 0 10px 30px rgba(194, 30, 86, 0.4); }
+        }
+
+        .btn-final:hover {
+            transform: translateY(-3px) scale(1.02);
+            filter: brightness(1.1);
+        }
+
+        .quote-footer {
+            text-align: center;
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.5em;
+            color: var(--cor-primaria);
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(194, 30, 86, 0.1);
+        }
+
         .hidden {
             opacity: 0 !important;
             visibility: hidden !important;
+            pointer-events: none;
         }
-        
-        /* 4. ESTILO DO CONTEÚDO PRINCIPAL (EXEMPLO) */
-        #main-content {
-            padding-top: 50px;
-            text-align: center;
+
+        /* Responsividade para telas menores */
+        @media (max-width: 768px) {
+            .container {
+                padding: 25px;
+                margin: 20px 10px;
+            }
+            h1 { font-size: 2em; }
+            .splash-title { font-size: 3.5em; }
         }
     </style>
 </head>
 <body>
 
     <div id="splash-screen">
-        <h1 class="splash-title">Feliz Aniversário​🥳</h1>
+        <h1 class="splash-title">Feliz Aniversário​ 💖</h1>
     </div>
-    
-    <div id="main-content">
-        <h2>Parabéns Lê, Parabens Sandra, Parabéns Dory</h2>
+
+    <div id="lightbox">
+        <img id="lightbox-img" src="" alt="Zoom">
     </div>
-    
+
+    <div class="container">
+        <h1>Lembranças da Alessandra 18 anos</h1>
+        
+        <div class="texto-destaque">
+            <p>Parabéns, meu Amor!</p>
+            <p>Aqui estão algumas coisas que tenho certeza que serão inesquecíveis. 💭​😉​</p>
+            <p>Esta é a nossa página de lembranças. O destino será momentos que marcaram e textos com muitos sentimentos...</p>
+        </div>
+
+        <div class="secao">
+            <h2>O que ela significa para você? Ela é tudo pra mim.</h2>
+            
+            <div class="galeria">
+                <figure>
+                    <img src="bety.jpg.JPG" alt="Beijo" loading="eager" decoding="async">
+                    <figcaption>Te Amo Filha 😘</figcaption>
+                </figure>
+            </div>
+
+            <div style="text-align: center; margin: 40px 0; font-size: 1.1em;">
+                <p style="font-family: 'Playfair Display', serif; font-size: 1.3em; color: var(--cor-primaria);"><strong>Dona Bety ♡</strong></p>
+                <p>Você é minha querida filha, Minha companheira de todas as horas. 💖</p>
+                <p>Parabéns Dory, que você realize todos seus sonhos e continue sendo essa mulher incrível. Saiba que Eu te amo muito, sempre que precisar estarei aqui. Eu e Você para sempre. 💘​</p>
+            </div>
+        </div>
+
+        <div class="secao">
+            <h2>Galeria de Momentos</h2>
+            <div class="galeria">
+                <figure>
+                    <img src="pescaria.jpg.JPG" alt="Pescando Juntos" loading="lazy" decoding="async">
+                    <figcaption>Primeira Pesca Juntos</figcaption>
+                </figure>
+                <figure>
+                    <img src="momentos.jpg" alt="Eu Te Amo" loading="lazy" decoding="async">
+                    <figcaption>Momentos especiais</figcaption>
+                </figure>
+                <figure>
+                    <img src="cinema.jpg.JPG" alt="Nosso Passeio" loading="lazy" decoding="async">
+                    <figcaption>Primeira vez juntos no cinema</figcaption>
+                </figure>
+                <figure>
+                    <img src="frase.jpg.JPG" alt="Um lindo Momento" loading="lazy" decoding="async">
+                    <figcaption>Eu te amo ♥️</figcaption>
+                </figure>
+                <figure>
+                    <img src="Beijo.jpg.JPG" alt="Foto Marcante" loading="lazy" decoding="async">
+                    <figcaption>Aquela foto marcante</figcaption>
+                </figure>
+                <figure>
+                    <img src="muitxo.jpg.JPG" alt="Eu e Voce" loading="lazy" decoding="async">
+                    <figcaption>HaHaHaHaHa</figcaption>
+                </figure>
+                <figure>
+                    <img src="filinha.jpg.PNG" alt="Filha" loading="lazy" decoding="async">
+                    <figcaption>Filha ♥️</figcaption>
+                </figure>
+                <figure>
+                    <img src="betyele.jpg.PNG" alt="Te Amo" loading="lazy" decoding="async">
+                    <figcaption>TE AMO Lê 😍</figcaption>
+                </figure>
+                <figure>
+                    <img src="Beleza.JPG" alt="LINDAA" loading="lazy" decoding="async">
+                    <figcaption>É Lindaa É Muitxo Linda</figcaption>
+                </figure>
+                <figure>
+                    <img src="Bigodinho.JPG" alt="Bigodinho" loading="lazy" decoding="async">
+                    <figcaption>Bigodinho</figcaption>
+                </figure>
+                 <figure>
+                    <img src="Emanuel.JPG" alt="Irmão" loading="lazy" decoding="async">
+                    <figcaption>​My brother</figcaption>
+                </figure>
+            </div>
+            
+            <div class="quote-footer">
+                "Momentos tão especiais e marcantes com pessoas mais que importantes" 🥰
+            </div>
+        </div>
+
+        <div class="secao" style="margin-top: 50px;">
+            <h2>Carta Aberta</h2>
+            <p style="text-align: center; font-family: 'Playfair Display', serif; font-size: 1.2em;"><strong>Mãe para Lê</strong></p>
+            
+            <div class="audio-container">
+                <audio controls>
+                     <source src="AudioBety.m4a" type="audio/mpeg">
+                     <source src="AudioBety.mp3" type="audio/ogg">
+                     Seu navegador não suporta áudio.
+                </audio>
+            </div>
+
+            <p style="text-align: justify; margin-top: 30px; padding: 0 20px;">
+               Hoje é seu aniversário minha filha, uma data especial não apenas para você mas também para mim, pois recordo um dos momentos mais felizes da minha vida. Você chegou aos meus braços depois de ter compartilhado existências no meu corpo e no meu coração. Nasceu um amor que é tão grande, tão imenso que não existe comparação possível com nada. Feliz aniversário meu amor!
+            </p>
+            <p style="text-align: center; font-weight: bold; color: var(--cor-primaria); font-family: 'Dancing Script', cursive; font-size: 1.4em; margin-top: 30px;">
+              Feliz Aniversário Alessandra, 18 anos sendo a luz e o sentido de nossas Vidas!
+            </p>
+        </div>
+
+        <div class="secao" style="text-align: center; margin-top: 50px;">
+             <h2>Hailton para Sandra</h2>
+            <p style="font-size: 1.1em; padding: 0 20px;">
+                Filha você é muito Importante para mim, Deus Abençoe você filha. Sempre estarei aqui com você, conte comigo para tudo, eu sempre vou estar aqui Sandra.
+            </p>
+        </div>
+
+        <a href="https://fãdegreysanatomy.my.canva.site/" target="_blank" class="btn-final">
+            ⚠️​➡️ Parabéns Dory 🤍 ​⬅️​⚠️​
+        </a>
+    </div>
 
     <script>
-        // Oculta o splash screen após um tempo
-		document.addEventListener('DOMContentLoaded', () => {
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // --- Lógica do Splash Screen ---
             const splash = document.getElementById('splash-screen');
-            const delayTime = 3000; // 3 segundos
-
             setTimeout(() => {
                 splash.classList.add('hidden');
-                
-                setTimeout(() => {
-                    splash.style.display = 'none';
-                }, 1000); // 1s é o tempo da transição
-            }, delayTime);
+                setTimeout(() => { splash.style.display = 'none'; }, 1000); // Tempo aumentado para transição suave
+            }, 3500); // Um pouco mais de tempo para apreciar o splash
+
+            // --- Lógica do Lightbox (Zoom) ---
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            const images = document.querySelectorAll('.galeria img');
+
+            images.forEach(img => {
+                img.addEventListener('click', () => {
+                    lightboxImg.src = img.src;
+                    lightbox.classList.add('active');
+                });
+            });
+
+            lightbox.addEventListener('click', () => {
+                lightbox.classList.remove('active');
+            });
+
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    lightbox.classList.remove('active');
+                }
+            });
         });
     </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
