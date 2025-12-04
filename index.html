@@ -7,67 +7,66 @@
     
     <link rel="preload" as="image" href="campo.jpg">
 
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 
     <style>
-        /* ================= VARIAVEIS E RESET ================= */
+        /* ================= VARIAVEIS E CORES ================= */
         :root {
-            /* Nova paleta romântica */
-            --cor-fundo-dark: #2a0a0a; /* Vinho profundo */
-            --cor-fundo-light: #fffafb; /* Creme rosado */
-            --cor-texto-dark: #4a2c2c;
-            --cor-texto-light: #f8f1f1;
-            --cor-primaria: #c21e56; /* Rosa profundo elegante */
-            --cor-ouro: #d4af37; /* Dourado para acentos */
-            --cor-destaque: #ff4d6d; /* Vermelho rosado vibrante */
-            --cor-acao-gradiente: linear-gradient(135deg, #ff4d6d, #c21e56);
+            /* Fundo misturando Azul Profundo e Vermelho Escuro */
+            --cor-fundo-azul: #0a192f; 
+            --cor-fundo-vermelho: #3a0000;
+            
+            --cor-titulos: #d60000; /* Vermelho vivo para os títulos */
+            --cor-texto: #333333;   /* Cinza escuro para leitura */
+            --cor-bg-container: #ffffff;
+            --fonte-romantica: 'Dancing Script', cursive;
+            --fonte-elegante: 'Playfair Display', serif;
+            --fonte-texto: 'Arial', sans-serif; /* Arial solicitada */
         }
 
         body {
-            font-family: 'Poppins', sans-serif; /* Fonte moderna e limpa para leitura */
+            /* Texto geral em Arial */
+            font-family: var(--fonte-texto); 
             margin: 0;
             padding: 0;
-            background: linear-gradient(135deg, var(--cor-fundo-dark), #461111);
-            color: var(--cor-texto-dark);
-            line-height: 1.7;
+            /* Degradê do Azul para o Vermelho */
+            background: linear-gradient(135deg, var(--cor-fundo-azul) 0%, var(--cor-fundo-vermelho) 100%);
+            background-attachment: fixed; /* O fundo fica fixo enquanto rola */
+            color: var(--cor-texto);
+            line-height: 1.6;
             overflow-x: hidden;
         }
 
-        /* ================= SPLASH SCREEN ROMÂNTICO ================= */
+        /* ================= SPLASH SCREEN ================= */
         #splash-screen {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
             z-index: 9999;
-            background-color: var(--cor-fundo-dark);
-            /* Adiciona uma superposição escura e avermelhada sobre a imagem */
-            background: linear-gradient(rgba(42, 10, 10, 0.7), rgba(70, 17, 17, 0.8)), url('campo.jpg'); 
+            background-color: #000;
+            /* Mistura azul escuro com a imagem */
+            background: linear-gradient(rgba(10, 25, 47, 0.8), rgba(58, 0, 0, 0.6)), url('campo.jpg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1), visibility 1s ease-out;
+            transition: opacity 1s ease, visibility 1s ease;
         }
 
         .splash-title {
-            color: var(--cor-ouro);
-            font-family: 'Dancing Script', cursive; /* Fonte manuscrita */
+            color: #fff; /* Branco no splash para contraste */
+            font-family: var(--fonte-romantica);
             font-size: clamp(3em, 8vw, 5em);
-            font-weight: 700;
             text-align: center;
-            text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
-            padding: 30px;
-            /* Animação de batimento cardíaco */
-            animation: heartbeat 1.5s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
+            text-shadow: 0 0 20px rgba(214, 0, 0, 0.8); /* Brilho vermelho */
+            padding: 20px;
+            animation: pulseTitle 2s infinite;
         }
 
-        @keyframes heartbeat {
+        @keyframes pulseTitle {
             0% { transform: scale(1); }
-            10% { transform: scale(1.05); }
-            20% { transform: scale(1); }
-            30% { transform: scale(1.05); }
-            40% { transform: scale(1); }
+            50% { transform: scale(1.05); }
             100% { transform: scale(1); }
         }
 
@@ -75,75 +74,70 @@
         .container {
             max-width: 900px;
             margin: 40px auto;
-            background-color: var(--cor-fundo-light);
-            padding: 50px;
-            border-radius: 25px;
-            /* Sombra suave e brilho dourado */
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4), inset 0 0 0 2px rgba(212, 175, 55, 0.1);
+            background-color: var(--cor-bg-container);
+            padding: 40px;
+            border-radius: 20px;
+            /* Sombra azulada suave */
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
             position: relative;
-            overflow: hidden;
         }
 
-        /* Detalhe decorativo no topo do container */
+        /* Borda superior decorativa vermelha */
         .container::before {
             content: '';
             position: absolute;
-            top: 0; left: 0; width: 100%; height: 6px;
-            background: var(--cor-acao-gradiente);
+            top: 0; left: 0; right: 0; height: 8px;
+            background: linear-gradient(90deg, #0a192f, #d60000);
+            border-radius: 20px 20px 0 0;
         }
 
+        /* TÍTULOS - Todos em Vermelho e Românticos */
         h1 {
-            font-family: 'Playfair Display', serif;
-            color: var(--cor-primaria);
-            font-size: 2.5em;
+            font-family: var(--fonte-romantica);
+            color: var(--cor-titulos);
+            font-size: 3em;
             text-align: center;
-            margin-bottom: 30px;
-            position: relative;
-        }
-        
-        /* Pequeno coração abaixo do título principal */
-        h1::after {
-            content: '♥';
-            display: block;
-            font-size: 30px;
-            color: var(--cor-destaque);
-            margin-top: 10px;
-            font-family: 'Dancing Script';
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 20px;
         }
 
         h2 {
-            font-family: 'Playfair Display', serif;
-            color: var(--cor-fundo-dark);
-            margin-bottom: 25px;
+            font-family: var(--fonte-romantica); /* Mantendo romântico */
+            color: var(--cor-titulos);
+            margin-bottom: 15px;
             text-align: center;
-            font-weight: 700;
-            font-size: 1.8em;
+            font-size: 2.2em;
         }
 
-        .texto-destaque {
-            background: #fff0f3; /* Fundo rosado muito suave */
-            padding: 35px;
-            border-radius: 15px;
-            border: 2px solid rgba(194, 30, 86, 0.1);
-            margin: 40px 0;
-            text-align: center;
-            font-size: 1.2em;
-            color: #6d3b47;
-            box-shadow: 0 5px 15px rgba(194, 30, 86, 0.05);
-        }
-        
-        .texto-destaque p:first-child {
-            font-family: 'Dancing Script', cursive;
-            font-size: 1.8em;
-            color: var(--cor-primaria);
+        /* TEXTOS - Arial (Padrão) */
+        p {
+            font-family: var(--fonte-texto); /* Arial */
+            font-size: 1.1em;
             margin-bottom: 15px;
         }
 
-        /* ================= GALERIA & IMAGENS ================= */
+        .texto-destaque {
+            background: #fdf2f2; /* Fundo avermelhado muito claro */
+            padding: 25px;
+            border-left: 5px solid var(--cor-titulos);
+            border-right: 5px solid var(--cor-titulos);
+            margin: 30px 0;
+            text-align: center;
+            border-radius: 8px;
+        }
+        
+        /* Frases de destaque dentro do box podem ser levemente maiores */
+        .texto-destaque p {
+            font-weight: bold;
+            color: #555;
+        }
+
+        /* ================= GALERIA ================= */
         .galeria {
             display: flex;
             flex-wrap: wrap;
-            gap: 25px;
+            gap: 20px;
             justify-content: center;
             margin-top: 30px;
         }
@@ -153,52 +147,82 @@
             width: 100%;
             max-width: 250px;
             background: #fff;
-            padding: 12px;
-            border-radius: 15px;
-            /* Sombra e borda sutil dourada */
-            box-shadow: 0 8px 20px rgba(0,0,0,0.08), 0 0 0 1px rgba(212, 175, 55, 0.2);
+            padding: 10px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             text-align: center;
-            transition: all 0.4s ease;
+            transition: transform 0.3s ease;
             cursor: zoom-in;
+            border: 1px solid #eee;
         }
 
         .galeria figure:hover {
-            transform: translateY(-8px) scale(1.02);
-            box-shadow: 0 15px 30px rgba(194, 30, 86, 0.2), 0 0 0 2px rgba(212, 175, 55, 0.4);
+            transform: translateY(-5px);
+            border-color: var(--cor-titulos); /* Borda fica vermelha ao passar o mouse */
         }
 
         .galeria img {
             width: 100%;
             height: auto;
-            border-radius: 10px;
+            border-radius: 8px;
             aspect-ratio: 3/4; 
             object-fit: cover;
             display: block;
-            filter: brightness(1.02); /* Um leve brilho nas fotos */
         }
 
+        /* LEGENDA - Exceção: Fonte Romântica e Vermelha */
         figcaption {
-            margin-top: 12px;
-            font-family: 'Dancing Script', cursive;
-            font-size: 1.3em;
-            color: var(--cor-primaria);
-            font-weight: 600;
+            margin-top: 10px;
+            font-family: var(--fonte-romantica);
+            font-size: 1.4em;
+            color: var(--cor-titulos);
+            font-weight: normal;
         }
 
-        /* ================= LIGHTBOX (ZOOM) ================= */
+        /* ================= BOTÃO ANIMADO ================= */
+        .btn-final {
+            display: block;
+            text-align: center;
+            margin: 50px auto 20px;
+            background: linear-gradient(45deg, #d60000, #ff4d4d);
+            color: white;
+            padding: 20px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-family: var(--fonte-texto); /* Texto do botão em Arial para leitura */
+            font-weight: bold;
+            font-size: 1.2em;
+            box-shadow: 0 10px 25px rgba(214, 0, 0, 0.4);
+            /* Animação aplicada */
+            animation: heartbeatBtn 1.5s infinite; 
+            transition: all 0.3s ease;
+        }
+
+        /* Animação de Pulsar (Coração) */
+        @keyframes heartbeatBtn {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(214, 0, 0, 0.7); }
+            50% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(214, 0, 0, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(214, 0, 0, 0); }
+        }
+
+        .btn-final:hover {
+            animation: none; /* Para a animação ao passar o mouse para clicar */
+            transform: scale(1.1);
+            background: linear-gradient(45deg, #b00000, #e60000);
+        }
+
+        /* ================= LIGHTBOX ================= */
         #lightbox {
             position: fixed;
             z-index: 10000;
             top: 0; left: 0; width: 100%; height: 100%;
-            background-color: rgba(42, 10, 10, 0.95); /* Fundo vinho escuro */
+            background-color: rgba(10, 25, 47, 0.95); /* Fundo azul escuro */
             display: flex;
             justify-content: center;
             align-items: center;
             opacity: 0;
             visibility: hidden;
-            transition: all 0.4s ease;
-            cursor: zoom-out;
-            backdrop-filter: blur(5px); /* Desfoque no fundo */
+            transition: opacity 0.3s ease;
         }
 
         #lightbox.active {
@@ -209,107 +233,29 @@
         #lightbox img {
             max-width: 90%;
             max-height: 90%;
-            border-radius: 12px;
-            box-shadow: 0 0 40px rgba(0,0,0,0.5);
-            border: 3px solid var(--cor-fundo-light);
+            border-radius: 8px;
+            border: 2px solid #fff;
             transform: scale(0.9);
-            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); /* Efeito elástico suave */
+            transition: transform 0.3s ease;
         }
 
-        #lightbox.active img {
-            transform: scale(1);
-        }
+        #lightbox.active img { transform: scale(1); }
 
-        /* ================= ÁUDIO & BOTÕES ================= */
-        .audio-container {
-            background: #fff;
-            padding: 20px;
-            border-radius: 50px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            margin: 20px auto;
-            max-width: 450px;
-            border: 1px solid rgba(212, 175, 55, 0.2);
-        }
-        
-        audio {
-            width: 100%;
-            display: block;
-            outline: none;
-            height: 40px;
-        }
-        /* Tentativa de estilizar o player nativo (funciona melhor no Chrome) */
-        audio::-webkit-media-controls-panel {
-            background-color: #fff0f3;
-        }
-        audio::-webkit-media-controls-play-button {
-             background-color: var(--cor-primaria);
-             border-radius: 50%;
-             color: white;
-        }
+        .hidden { opacity: 0 !important; visibility: hidden !important; pointer-events: none; }
 
-        .btn-final {
-            display: block;
-            text-align: center;
-            margin: 60px auto 20px;
-            /* Gradiente romântico */
-            background: var(--cor-acao-gradiente);
-            color: white;
-            padding: 20px 40px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-size: 1.4em;
-            font-weight: 600;
-            letter-spacing: 1px;
-            box-shadow: 0 10px 30px rgba(194, 30, 86, 0.4);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-            /* Animação de pulso suave no botão */
-            animation: gentlePulse 3s infinite ease-in-out;
-        }
-
-        @keyframes gentlePulse {
-            0% { box-shadow: 0 10px 30px rgba(194, 30, 86, 0.4); }
-            50% { box-shadow: 0 15px 40px rgba(194, 30, 86, 0.7); }
-            100% { box-shadow: 0 10px 30px rgba(194, 30, 86, 0.4); }
-        }
-
-        .btn-final:hover {
-            transform: translateY(-3px) scale(1.02);
-            filter: brightness(1.1);
-        }
-
-        .quote-footer {
-            text-align: center;
-            font-family: 'Dancing Script', cursive;
-            font-size: 1.5em;
-            color: var(--cor-primaria);
-            margin-top: 60px;
-            padding-top: 30px;
-            border-top: 1px solid rgba(194, 30, 86, 0.1);
-        }
-
-        .hidden {
-            opacity: 0 !important;
-            visibility: hidden !important;
-            pointer-events: none;
-        }
-
-        /* Responsividade para telas menores */
-        @media (max-width: 768px) {
-            .container {
-                padding: 25px;
-                margin: 20px 10px;
-            }
-            h1 { font-size: 2em; }
-            .splash-title { font-size: 3.5em; }
+        /* Mobile Adjustments */
+        @media (max-width: 600px) {
+            .container { padding: 20px; margin: 15px; }
+            h1 { font-size: 2.5em; }
+            h2 { font-size: 1.8em; }
+            figcaption { font-size: 1.2em; }
         }
     </style>
 </head>
 <body>
 
     <div id="splash-screen">
-        <h1 class="splash-title">Feliz Aniversário​ 💖</h1>
+        <h1 class="splash-title">Feliz Aniversário​ ❤️</h1>
     </div>
 
     <div id="lightbox">
@@ -320,9 +266,9 @@
         <h1>Lembranças da Alessandra 18 anos</h1>
         
         <div class="texto-destaque">
-            <p>Parabéns, meu Amor!</p>
+            <p>Parabéns Amor, 18 Anos!</p>
             <p>Aqui estão algumas coisas que tenho certeza que serão inesquecíveis. 💭​😉​</p>
-            <p>Esta é a nossa página de lembranças. O destino será momentos que marcaram e textos com muitos sentimentos...</p>
+            <p>Esta é a página de lembranças. O destino será momentos que marcaram e textos com muitos sentimentos...</p>
         </div>
 
         <div class="secao">
@@ -335,8 +281,8 @@
                 </figure>
             </div>
 
-            <div style="text-align: center; margin: 40px 0; font-size: 1.1em;">
-                <p style="font-family: 'Playfair Display', serif; font-size: 1.3em; color: var(--cor-primaria);"><strong>Dona Bety ♡</strong></p>
+            <div style="text-align: center; margin: 30px 0;">
+                <p style="font-weight: bold; font-size: 1.2em;">Dona Bety ♡</p>
                 <p>Você é minha querida filha, Minha companheira de todas as horas. 💖</p>
                 <p>Parabéns Dory, que você realize todos seus sonhos e continue sendo essa mulher incrível. Saiba que Eu te amo muito, sempre que precisar estarei aqui. Eu e Você para sempre. 💘​</p>
             </div>
@@ -355,7 +301,7 @@
                 </figure>
                 <figure>
                     <img src="cinema.jpg.JPG" alt="Nosso Passeio" loading="lazy" decoding="async">
-                    <figcaption>Primeira vez juntos no cinema</figcaption>
+                    <figcaption>Primeira vez no cinema</figcaption>
                 </figure>
                 <figure>
                     <img src="frase.jpg.JPG" alt="Um lindo Momento" loading="lazy" decoding="async">
@@ -379,7 +325,7 @@
                 </figure>
                 <figure>
                     <img src="Beleza.JPG" alt="LINDAA" loading="lazy" decoding="async">
-                    <figcaption>É Lindaa É Muitxo Linda</figcaption>
+                    <figcaption>É Muitxo Linda</figcaption>
                 </figure>
                 <figure>
                     <img src="Bigodinho.JPG" alt="Bigodinho" loading="lazy" decoding="async">
@@ -391,34 +337,32 @@
                 </figure>
             </div>
             
-            <div class="quote-footer">
+            <p style="margin-top: 50px; text-align: center; font-family: var(--fonte-romantica); font-size: 1.5em; color: var(--cor-titulos);">
                 "Momentos tão especiais e marcantes com pessoas mais que importantes" 🥰
-            </div>
+            </p>
         </div>
 
-        <div class="secao" style="margin-top: 50px;">
+        <div class="secao">
             <h2>Carta Aberta</h2>
-            <p style="text-align: center; font-family: 'Playfair Display', serif; font-size: 1.2em;"><strong>Mãe para Lê</strong></p>
+            <p style="text-align: center; font-weight: bold;">Mãe para Lê</p>
             
-            <div class="audio-container">
-                <audio controls>
-                     <source src="AudioBety.m4a" type="audio/mpeg">
-                     <source src="AudioBety.mp3" type="audio/ogg">
-                     Seu navegador não suporta áudio.
-                </audio>
-            </div>
+            <audio controls style="width: 100%; max-width: 400px; display: block; margin: 15px auto;">
+                 <source src="AudioBety.m4a" type="audio/mpeg">
+                 <source src="AudioBety.mp3" type="audio/ogg">
+                 Seu navegador não suporta áudio.
+            </audio>
 
-            <p style="text-align: justify; margin-top: 30px; padding: 0 20px;">
+            <p style="text-align: justify; margin-top: 20px;">
                Hoje é seu aniversário minha filha, uma data especial não apenas para você mas também para mim, pois recordo um dos momentos mais felizes da minha vida. Você chegou aos meus braços depois de ter compartilhado existências no meu corpo e no meu coração. Nasceu um amor que é tão grande, tão imenso que não existe comparação possível com nada. Feliz aniversário meu amor!
             </p>
-            <p style="text-align: center; font-weight: bold; color: var(--cor-primaria); font-family: 'Dancing Script', cursive; font-size: 1.4em; margin-top: 30px;">
+            <p style="text-align: center; font-weight: bold; color: var(--cor-titulos); margin-top: 20px;">
               Feliz Aniversário Alessandra, 18 anos sendo a luz e o sentido de nossas Vidas!
             </p>
         </div>
 
-        <div class="secao" style="text-align: center; margin-top: 50px;">
+        <div class="secao" style="text-align: center;">
              <h2>Hailton para Sandra</h2>
-            <p style="font-size: 1.1em; padding: 0 20px;">
+            <p>
                 Filha você é muito Importante para mim, Deus Abençoe você filha. Sempre estarei aqui com você, conte comigo para tudo, eu sempre vou estar aqui Sandra.
             </p>
         </div>
@@ -431,14 +375,14 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             
-            // --- Lógica do Splash Screen ---
+            // --- Splash Screen ---
             const splash = document.getElementById('splash-screen');
             setTimeout(() => {
                 splash.classList.add('hidden');
-                setTimeout(() => { splash.style.display = 'none'; }, 1000); // Tempo aumentado para transição suave
-            }, 3500); // Um pouco mais de tempo para apreciar o splash
+                setTimeout(() => { splash.style.display = 'none'; }, 1000);
+            }, 3000);
 
-            // --- Lógica do Lightbox (Zoom) ---
+            // --- Lightbox ---
             const lightbox = document.getElementById('lightbox');
             const lightboxImg = document.getElementById('lightbox-img');
             const images = document.querySelectorAll('.galeria img');
@@ -453,11 +397,9 @@
             lightbox.addEventListener('click', () => {
                 lightbox.classList.remove('active');
             });
-
+            
             document.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape') {
-                    lightbox.classList.remove('active');
-                }
+                if (e.key === 'Escape') lightbox.classList.remove('active');
             });
         });
     </script>
