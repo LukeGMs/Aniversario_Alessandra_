@@ -384,8 +384,9 @@
 		<style>
 			/* 1. KEYFRAMES: Animação de Mover (move horizontalmente para frente e para trás) */
 @keyframes mover {
+   @keyframes mover {
     0% { transform: translateX(0); }
-    50% { transform: translateX(-10px); } /* Move 7 pixels para a direita */
+    50% { transform: translateX(-10px); } /* <-- AGORA MOVE 10 PIXELS PARA A ESQUERDA */
     100% { transform: translateX(0); }
 }
 
@@ -501,6 +502,7 @@
     </script>
 </body>
 </html>
+
 
 
 
