@@ -1,517 +1,303 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bem-vindo ao nosso QR Code!</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #ff0000;
-            color: #333;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-        }
-        .container {
-            background-color: white;
-            padding: 40px 30px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            max-width: 80%;
-        }
-        h1 {
-            color: #ff0000; 
-                        margin-bottom: 10px;
-        }
-        p {
-            font-size: 1.1em;
-            color: #555;
-            margin-bottom: 25px;
-        }
-        .call-to-action {
-            background-color: #28a745; /* Verde para ação */
-            color: white;
-            padding: 12px 25px;
-            border: none;
-            border-radius: 8px;
-            text-decoration: none;
-            font-size: 1.2em;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        .call-to-action:hover {
-            background-color: #218838;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1>Bem-vindo!</h1>
-        <p>Parabéns Amor 18 Anos!</p>
-        <p>Aqui está algumas coisas que tenho certeza que serão inesquecíveis.
-		💭​😉​</p>
-    </div>
-<!-- Code injected by live-server -->
-<script>
-	// <![CDATA[  <-- For SVG support
-	if ('WebSocket' in window) {
-		(function () {
-			function refreshCSS() {
-				var sheets = [].slice.call(document.getElementsByTagName("link"));
-				var head = document.getElementsByTagName("head")[0];
-				for (var i = 0; i < sheets.length; ++i) {
-					var elem = sheets[i];
-					var parent = elem.parentElement || head;
-					parent.removeChild(elem);
-					var rel = elem.rel;
-					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
-						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
-						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
-					}
-					parent.appendChild(elem);
-				}
-			}
-			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
-			var address = protocol + window.location.host + window.location.pathname + '/ws';
-			var socket = new WebSocket(address);
-			socket.onmessage = function (msg) {
-				if (msg.data == 'reload') window.location.reload();
-				else if (msg.data == 'refreshcss') refreshCSS();
-			};
-			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
-				console.log('Live reload enabled.');
-				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
-			}
-		})();
-	}
-	else {
-		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
-	}
-	// ]]>
-</script>
-</body>
+import React, { useState, useEffect } from 'react';
+import { Package, Save, Trash2, Search, Plus, LayoutGrid, Edit, Tag, X } from 'lucide-react';
+import api from '../../services/api';
 
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lembranças da Alessandra 18 anos de Vida</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
-            background-color: #1d214b;
-            color: #000000;
-            line-height: 1.6;
-        }
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            background-color: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        h1 {
-            color: #007bff;
-            border-bottom: 2px solid #eee;
-            padding-bottom: 10px;
-            text-align: center;
-        }
-        .secao {
-            margin-top: 25px;
-            padding: 15px 0;
-        }
-        h2 {
-            color: #c71d1d;
-            margin-bottom: 10px;
-        }
-        .galeria {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            justify-content: center;
-            margin-top: 15px;
-        }
-        .galeria img {
-            width: 100%;
-            max-width: 250px; /* Define o tamanho máximo da imagem */
-            height: auto;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-        .texto-destaque {
-            background-color: #ddddddcc;
-            padding: 15px;
-            border-left: 5px solid #ff0707;
-             border-right: 5px solid #ff0707;
-            margin-top: 20px;
-        }
-    </style>
-	</head>
-	<body>
-    <div class="container">
-        <h1>Lembranças da Alessandra 18 anos de Vida</h1>
-        <p class="texto-destaque">
-            Bom aqui esta a página de lembranças, O destino será momentos que marcaram 
-            e Textos com muitos sentimentos....
-        <div class="secao">
-            <h2> Oque ela sgnifica para você, ela é tudo pra mim </h2>
-            <div class="galeria">
-                    <figure>
-                        <img src="bety.jpg.JPG" alt="Beijo">
-                        <figcaption>Te Amo Filha😘</figcaption>
-             <div class="container">
-        <p>Dona Bety♡</p>
-	    <p>Você é minha querida filha, Minha companheira de todas as horas.💖</p>
-    	</div>
-            <p class="text-align: justify;">
-             Parabéns Dory, você realize todos seus sonhos e continue sendo uma mulher incrível 
-             igual você é, saiba que Eu te amo muito sempre que precisar estarei aqui para oque der e vier, Eu e Você para sempre.💘​ </p>
-        </div>
-        <div class="secao">
-            <h2>Galeria de Mometos</h2>
-            <div class="galeria">
-                    <figure>
-                        <img src="pescaria.jpg.JPG" alt="Pescando Juntos">
-                        <figcaption>Primeira Pesca Juntos</figcaption>
-                    </figure>
-                    <figure>
-                        <img src="momentos.jpg" alt="Eu Te Amo">
-                        <figcaption>Momentos especiais Eu Te Amo</figcaption>
-                    </figure>
-                    <figure>
-                        <img src="cinema.jpg.JPG" alt="Nosso Passeio">
-                        <figcaption>Primeira vez saindo juntos</figcaption>
-                        <figcaption>Primeira vez juntos no cinema</figcaption>
-                    </figure>
-                    <figure>
-                        <img src="frase.jpg.JPG" alt="Um lindo Momento Juntos">
-                        <figcaption>Eu te amo♥️</figcaption>
-                    </figure>
-                     <figure>
-                        <img src="Beijo.jpg.JPG" alt="HeHeHeHeHeHeHeHeHe">
-                        <figcaption>Aquela foto marcante</figcaption>
-                    </figure>
-				    <figure>
-                        <img src="muitxo.jpg.JPG" alt="EU e Voce">
-                        <figcaption>HaHaHaHaHaHaHaHaHa</figcaption>
-                    </figure>
-					<figure>
-						<img src="filinha.jpg.PNG" alt="Filha">
-						<figcaption>Filha♥️</figcaption>
-					</figure>
-					<figure>
-						<img src="betyele.jpg.PNG" alt="😍😍">
-						<figcaption>TE AMO Lê😍</figcaption>
-					</figure>
-					<figure>
-						<img src="engracado.jpg.JPG" alt="HAHAHAHA">
-						<figcaption>Engraçadinha</figcaption>
-					</figure>
-					 <figure>
-                        <img src="Beleza.JPG" alt="LINDAA">
-                        <figcaption>È Lindaa É Muitxo Linda</figcaption>
-                    </figure>
-				 	<figure>
-                        <img src="Bigodinho.JPG" alt=".">
-	                        <figcaption>Bigodinho</figcaption>
-                    </figure>
-					<figure>
-                        <img src="Empé.PNG" alt=".">
-	                        <figcaption>Mocinha🙃</figcaption>
-                    </figure>
-					<figure>
-                        <img src="rosto.JPG" alt=".">
-	                        <figcaption>🙃</figcaption>
-                    </figure>
-					<figure>
-                        <img src="Pé.PNG" alt=".">
-	                        <figcaption>💞​</figcaption>
-                    </figure>
-					<figure>
-                        <img src="Familia.PNG" alt=".">
-	                        <figcaption>Family​</figcaption>
-                    </figure>
-					<figure>
-                        <img src="irmao.JPG" alt=".">
-	                        <figcaption>Irmão​</figcaption>
-                    </figure>
-					<figure>
-                        <img src="BoloRosa.PNG" alt=".">
-	                        <figcaption>Festinha com seu Bolo Rosa</figcaption>
-                    </figure>
-					<figure>
-                        <img src="Prézinho.PNG" alt=".">
-	                        <figcaption>Brother​</figcaption>
-                    </figure>
-					<figure>
-                        <img src="bebezinha.JPG" alt=".">
-	                        <figcaption>Bebê​</figcaption>
-                    </figure>
-					<figure>
-                        <img src="Vestidinho.JPG" alt=".">
-	                        <figcaption>Niver​</figcaption>
-                    </figure>
-					<figure>
-                        <img src="Primeiro.JPG" alt=".">
-	                        <figcaption>Inesquecível​</figcaption>
-                    </figure>
-					<figure>
-                        <img src="escolinha.JPG" alt=".">
-	                        <figcaption>Sempre Inteligente</figcaption>
-                    </figure>
-					<figure>
-                        <img src="Lindos.jpg" alt=".">
-	                        <figcaption>Dia Lindo, Foto Linda​</figcaption>
-                    </figure>
-					<figure>
-                        <img src="maeefilha.jpg.PNG" alt=".">
-	                        <figcaption>Parabéns Minha Filha</figcaption>
-                    </figure>
-					<figure>
-                        <img src="sorrindo.jpg.JPG" alt=".">
-	                        <figcaption>Oh Sorriso mais encantador!​</figcaption>
-                    </figure>
-					<figure>
-                        <img src="bonita.jpg.JPG" alt=".">
-	                        <figcaption>Mdss 😻​</figcaption>
-                    </figure>
-					<figure>
-                        <img src="Muie.JPG" alt=".">
-	                        <figcaption>Eitxa o Olhar dela ☺️​😍​​</figcaption>
-                    </figure>
-					<figure>
-                        <img src="Vermelho.JPG" alt=".">
-	                        <figcaption>Até que Arrumadinha😎​</figcaption>
-                    </figure>
-					<figure>
-                        <img src="Emanuel.JPG" alt=".">
-	                        <figcaption>​My brother</figcaption>
-                    </figure>
-					<figure>
-                        <img src="sim.JPG" alt=".">
-	                        <figcaption>Hipnotizantezante a mulher que eu Tenho!</figcaption>
-                    </figure>
-				    <figure>
-                        <img src="Photo.png" alt=".">
-	                        <figcaption>Fotos com muitos sentimentos</figcaption>
-                    </figure>
-				    <figure>
-                        <img src="MeuAniversario.JPG" alt=".">
-	                        <figcaption>Primeiro Aniversário juntos!</figcaption>
-                    </figure>
-				    <figure>
-                        <img src="Lupa.png" alt=".">
-	                        <figcaption>Somos....</figcaption>
-                    </figure>
-					 <figure>
-                        <img src="Você.JPG" alt=".">
-	                        <figcaption>Essa é você! HeHeHeHe</figcaption>
-                    </figure>
-            		</div>
-		</div>
-			 <p style="margin-top: 100px; font-family: 'Georgia', serif;">
-   			 Momentos tão especiais e marcantes com pessoas mais que importantes🥰
-			 </p>
-        </div>
-        <div class="secao">
-            <h2>Carta Aberta</h2>
- <p>Mãe para Lê</p>
-			<audio controls>
-   				 <source src="AudioBety.m4a" type="audio/mpeg">
-   				 <source src="AudioBety.mp3" type="audio/ogg">
-   				 Seu navegador não suporta o elemento de áudio.
-			</audio>
-            <p>
-               Hoje é seu aniversário minha filha uma data especial não apenas para você mas também para mim pois recordo um dos momentos mais felizes da minha vida você chegou ao meus braços depois de ter compartilhado existências no meu corpo e no meu coração nasceu um amor que é tão grande Tão imenso que não existe comparação possível com nada feliz aniversário meu amor​
-            <p>
-              Feliz Aniversário Alessandra 18 anos sendo a luz e o sentido de nossas Vidas!
-            </p>
-        </div>
-		<div class="secao">
-			 <h2>Hailton para Sandra</h2>
-			<p>
-				Filha você é muito Importante para mim, Deus Abençoe você filha sempre estarei aqui com você, conte comigo para tudo eu sempre vou estar aqui Sandra.
-			</p>
-		</div>
-	<html>
-</head>
-<body>
-    <h1>
-		<style>
-			/* 1. KEYFRAMES: Animação de Mover (move horizontalmente para frente e para trás) */
-@keyframes mover {
-    0% { transform: translateX(0); }
-    50% { transform: translateX(10px); } /* Move 7 pixels para a direita */
-    100% { transform: translateX(0); }
-}
+export default function Produtos() {
+    const [produtos, setProdutos] = useState([]);
+    const [loading, setLoading] = useState(false);
 
-/* 2. ESTILO DA ESCRITA (ONDE A ANIMAÇÃO É APLICADA) */
-.titulo-animado {
-    /* Aplica a animação de mover: 1.5s de duração, infinito, vai e volta */
-    animation: mover 1.0s infinite alternate; 
-    
-    /* ESSENCIAL: Permite que o 'transform' funcione no texto */
-    display: inline-block; 
-    
-    /* Garante a aparência original (removendo a decoração de link) */
-    text-decoration: none; 
-    color: #333; /* Cor preta/cinza escura, ajuste se necessário */
-    font-weight: bold;
-}
-	</style>
-		<a href="https://fãdegreysanatomy.my.canva.site/" 
-           target="_blank" 
-           class="titulo-animado">
-             Parabéns Dory🤍️
-        </a>
-    </h1>
-</body>
-</html>
-</h1>
-</head>
-		<html>
-	<body>
-    <h1>
-		<style>
-			/* 1. KEYFRAMES: Animação de Mover (move horizontalmente para frente e para trás) */
-@keyframes mover {
-    0% { transform: translateX(0); }
-    50% { transform: translateX(-10px); } /* <-- AGORA MOVE 10 PIXELS PARA A ESQUERDA */
-    100% { transform: translateX(0); }
-}
+    // ESTADO DO FORMULÁRIO
+    const [modoEdicao, setModoEdicao] = useState(false);
+    const [idEdicao, setIdEdicao] = useState(null);
 
-/* 2. ESTILO DA ESCRITA (ONDE A ANIMAÇÃO É APLICADA) */
-.titulo-animado {
-    /* Aplica a animação de mover: 1.5s de duração, infinito, vai e volta */
-   animation: mover 1.0s infinite alternate;
-    
-    /* ESSENCIAL: Permite que o 'transform' funcione no texto */
-    display: inline-block; 
-    
-    /* Garante a aparência original (removendo a decoração de link) */
-    text-decoration: none; 
-    color: #333; /* Cor preta/cinza escura, ajuste se necessário */
-    font-weight: bold;
-}
-	</style>
-		<a href="https://youtu.be/_gGI0N11lzw?si=WA5C5Nb8Winv-ND7" 
-           target="_blank" 
-           class="titulo-animado">
-             Aqui está seu Vídeo❤️
-        </a>
-    </h1>
-</body>
-</html>
-</h1>
-</head>
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Splash Screen com Fundo Total</title>
-    
-    <style>
-        /* ========================================= */
-        /* 1. ESTILO DO SPLASH SCREEN (FUNDO TOTAL) */
-        /* ========================================= */
-        #splash-screen {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 9999;
-            opacity: 1;
-            transition: opacity 5s ease-out, visibility 5s ease-out;
-            visibility: visible;
-            
-            /* ✅ NOVO: Configuração da imagem de fundo */
-			background-color: #000000;
-            background-image: url('campo.jpg'); /* Mude para o nome do seu arquivo! */
-            background-size: cover; /* ESSENCIAL: Faz a imagem cobrir toda a tela */
-            background-position: center; /* Centraliza a imagem */
-            background-repeat: no-repeat;
-            
-            /* ✅ NOVO: Centraliza o TÍTULO */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+    const [form, setForm] = useState({
+        codigo: '',
+        nome: '',
+        preco: '',
+        unidadeMedida: 'kg',
+        favorito: false,
+        emPromocao: false,      // Checkbox visual
+        precoPromocional: '',
+        fimPromocao: ''
+    });
 
-        /* 2. ESTILO DO TÍTULO POR CIMA DA IMAGEM */
-        .splash-title {
-            color: Black; /* Cor do título */
-            font-family: 'Honk' , sans-serif;
-            font-size: 2em; /* Tamanho do título */
-            text-align: center;
-			background-color: rgb(255, 255, 255); /* Fundo preto semi-transparente */
-        padding: 10px 20px; /* Espaçamento interno (topo/fundo e laterais) */
-        border-radius: 8px; /* Cantos levemente arredondados */
-        line-height: 1.2; /* Garante que o espaçamento entre linhas seja bom */
-        }
+    // Auxiliar: Porcentagem de desconto (apenas visual para ajudar a calcular)
+    const [porcentagemPromo, setPorcentagemPromo] = useState('');
 
-        /* 3. ESTILO PARA ESCONDER O SPLASH */
-        .hidden {
-            opacity: 0 !important;
-            visibility: hidden !important;
-        }
-        
-        /* 4. ESTILO DO CONTEÚDO PRINCIPAL (EXEMPLO) */
-        #main-content {
-            padding-top: 50px;
-            text-align: center;
-        }
-    </style>
-</head>
-<body>
+    useEffect(() => {
+        carregarProdutos();
+    }, []);
 
-    <div id="splash-screen">
-        <h1 class="splash-title">Feliz Aniversário​🥳</h1>
-    </div>
-    
-    <div id="main-content">
-        <h2>Parabéns Lê, Parabens Sandra, Parabéns Dory</h2>
-    </div>
-    
+    const carregarProdutos = async () => {
+        try {
+            const res = await api.get('/produtos');
+            setProdutos(res.data);
+        } catch (error) { console.error(error); }
+    };
 
-    <script>
-        // Oculta o splash screen após um tempo
-		document.addEventListener('DOMContentLoaded', () => {
-            const splash = document.getElementById('splash-screen');
-            const delayTime = 3000; // 3 segundos
+    // --- MÉTODOS DE FORMULÁRIO ---
 
-            setTimeout(() => {
-                splash.classList.add('hidden');
-                
-                setTimeout(() => {
-                    splash.style.display = 'none';
-                }, 1000); // 1s é o tempo da transição
-            }, delayTime);
+    const limparForm = () => {
+        setForm({
+            codigo: '', nome: '', preco: '', unidadeMedida: 'kg', favorito: false,
+            emPromocao: false, precoPromocional: '', fimPromocao: ''
         });
-    </script>
-</body>
-</html>
+        setPorcentagemPromo('');
+        setModoEdicao(false);
+        setIdEdicao(null);
+    };
 
+    const iniciarEdicao = (prod) => {
+        setModoEdicao(true);
+        setIdEdicao(prod.id);
 
+        // Formata a data que vem do banco (YYYY-MM-DDTHH...) para o input date (YYYY-MM-DD)
+        const dataFormatada = prod.fimPromocao ? prod.fimPromocao.split('T')[0] : '';
 
+        setForm({
+            codigo: prod.codigo,
+            nome: prod.nome,
+            preco: prod.preco,
+            unidadeMedida: prod.unidadeMedida,
+            favorito: prod.favorito,
+            emPromocao: !!prod.precoPromocional, // Se tem preço promo, ativa checkbox
+            precoPromocional: prod.precoPromocional || '',
+            fimPromocao: dataFormatada
+        });
+    };
 
+    const handleChange = (e) => {
+        const { name, value, type, checked } = e.target;
+        const valorFinal = type === 'checkbox' ? checked : value;
 
+        setForm(prev => ({ ...prev, [name]: valorFinal }));
 
+        // Se mudou o preço promo manual, reseta a porcentagem visual
+        if (name === 'precoPromocional') setPorcentagemPromo('');
+    };
 
+    // Calcula desconto por porcentagem
+    const aplicarDescontoPorcentagem = (pct) => {
+        setPorcentagemPromo(pct);
+        const precoOriginal = parseFloat(form.preco);
+        if (!isNaN(precoOriginal)) {
+            const desconto = precoOriginal * (pct / 100);
+            const final = precoOriginal - desconto;
+            setForm(prev => ({ ...prev, precoPromocional: final.toFixed(2) }));
+        }
+    };
 
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setLoading(true);
 
+        // Prepara objeto para enviar
+        const dadosEnvio = {
+            ...form,
+            preco: parseFloat(form.preco.toString().replace(',', '.')),
+            // Se não estiver marcado promoção, manda nulo para limpar no banco
+            precoPromocional: form.emPromocao ? parseFloat(form.precoPromocional.toString().replace(',', '.')) : null,
+            fimPromocao: form.emPromocao ? form.fimPromocao : null
+        };
 
+        try {
+            if (modoEdicao) {
+                await api.put(`/produtos/${idEdicao}`, dadosEnvio);
+                alert('✅ Produto atualizado!');
+            } else {
+                await api.post('/produtos', dadosEnvio);
+                alert('✅ Produto cadastrado!');
+            }
+            limparForm();
+            carregarProdutos();
+        } catch (error) {
+            alert(error.response?.data?.error || 'Erro ao salvar');
+        } finally {
+            setLoading(false);
+        }
+    };
 
+    const deletarProduto = async (id) => {
+        if (confirm('Tem certeza que deseja excluir?')) {
+            await api.delete(`/produtos/${id}`);
+            carregarProdutos();
+        }
+    };
 
+    return (
+        <div className="flex flex-col gap-6 h-[calc(100vh-6rem)]">
 
+            {/* Cabeçalho */}
+            <div className="flex justify-between items-center shrink-0">
+                <h1 className="text-3xl font-bold text-dark-text">Gestão de Produtos</h1>
+                <div className="text-slate-500 flex gap-2 items-center bg-white px-3 py-1 rounded-lg shadow-sm border border-slate-200">
+                    <Package size={20} className="text-primary" />
+                    <span className="font-bold">{produtos.length}</span> <span className="text-sm">itens</span>
+                </div>
+            </div>
+
+            <div className="flex flex-col lg:flex-row flex-1 gap-6 overflow-hidden">
+
+                {/* ESQUERDA: Formulário */}
+                <div className={`w-full lg:w-1/3 xl:w-1/4 bg-white p-6 rounded-xl shadow-sm border ${modoEdicao ? 'border-blue-300 ring-2 ring-blue-100' : 'border-slate-200'} h-fit overflow-y-auto shrink-0 transition-all`}>
+                    <div className="flex justify-between items-center mb-6 pb-4 border-b border-slate-100">
+                        <h2 className={`text-xl font-bold flex items-center gap-2 ${modoEdicao ? 'text-blue-600' : 'text-dark-text'}`}>
+                            {modoEdicao ? <><Edit size={24} /> Editando Produto</> : <><Plus className="text-primary" /> Novo Produto</>}
+                        </h2>
+                        {modoEdicao && (
+                            <button onClick={limparForm} className="text-xs text-red-500 hover:underline flex items-center gap-1">
+                                <X size={12} /> Cancelar
+                            </button>
+                        )}
+                    </div>
+
+                    <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+
+                        <div>
+                            <label className="block text-sm font-medium text-slate-700 mb-1">Código</label>
+                            <input name="codigo" value={form.codigo} onChange={handleChange} required disabled={modoEdicao} className={`w-full p-3 bg-slate-50 border border-slate-300 rounded-lg outline-none ${modoEdicao ? 'opacity-60 cursor-not-allowed' : 'focus:ring-2 focus:ring-primary'}`} placeholder="Ex: 101" />
+                        </div>
+
+                        <div>
+                            <label className="block text-sm font-medium text-slate-700 mb-1">Nome</label>
+                            <input name="nome" value={form.nome} onChange={handleChange} required className="w-full p-3 bg-slate-50 border border-slate-300 rounded-lg focus:ring-2 focus:ring-primary outline-none" placeholder="Ex: Banana" />
+                        </div>
+
+                        <div className="flex gap-4">
+                            <div className="flex-1">
+                                <label className="block text-sm font-medium text-slate-700 mb-1">Preço (R$)</label>
+                                <input name="preco" type="number" step="0.01" value={form.preco} onChange={handleChange} required className="w-full p-3 bg-slate-50 border border-slate-300 rounded-lg focus:ring-2 focus:ring-primary outline-none font-bold" placeholder="0.00" />
+                            </div>
+                            <div className="w-1/3">
+                                <label className="block text-sm font-medium text-slate-700 mb-1">Un.</label>
+                                <select name="unidadeMedida" value={form.unidadeMedida} onChange={handleChange} className="w-full p-3 bg-slate-50 border border-slate-300 rounded-lg outline-none">
+                                    <option value="kg">KG</option>
+                                    <option value="un">UN</option>
+                                    <option value="cx">CX</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        {/* ÁREA DE PROMOÇÃO */}
+                        <div className={`p-4 rounded-xl border transition-all ${form.emPromocao ? 'bg-red-50 border-red-200' : 'bg-slate-50 border-slate-200'}`}>
+                            <label className="flex items-center gap-2 cursor-pointer mb-3">
+                                <input type="checkbox" name="emPromocao" checked={form.emPromocao} onChange={handleChange} className="w-5 h-5 text-red-500 rounded focus:ring-red-500 accent-red-500" />
+                                <span className={`font-bold ${form.emPromocao ? 'text-red-600' : 'text-slate-500'}`}>
+                                    Aplicar Promoção / Oferta
+                                </span>
+                            </label>
+
+                            {form.emPromocao && (
+                                <div className="flex flex-col gap-3 animate-fade-in">
+                                    <div className="flex gap-2 mb-1">
+                                        {[5, 10, 15, 20, 50].map(pct => (
+                                            <button type="button" key={pct} onClick={() => aplicarDescontoPorcentagem(pct)} className="text-xs bg-white border border-red-200 text-red-500 px-2 py-1 rounded hover:bg-red-500 hover:text-white transition-colors">
+                                                -{pct}%
+                                            </button>
+                                        ))}
+                                    </div>
+
+                                    <div className="flex gap-3">
+                                        <div className="flex-1">
+                                            <label className="block text-xs font-bold text-red-700 mb-1">Preço Oferta</label>
+                                            <input name="precoPromocional" type="number" step="0.01" value={form.precoPromocional} onChange={handleChange} className="w-full p-2 border border-red-300 rounded text-red-600 font-bold outline-none" placeholder="0.00" />
+                                        </div>
+                                        <div className="flex-1">
+                                            <label className="block text-xs font-bold text-red-700 mb-1">Válido Até</label>
+                                            <input name="fimPromocao" type="date" value={form.fimPromocao} onChange={handleChange} className="w-full p-2 border border-red-300 rounded text-red-600 text-xs outline-none" />
+                                        </div>
+                                    </div>
+                                </div>
+                            )}
+                        </div>
+
+                        {/* Checkbox Grade */}
+                        <label className="flex items-center gap-3 p-3 cursor-pointer hover:bg-slate-50 rounded transition-colors">
+                            <input type="checkbox" name="favorito" checked={form.favorito} onChange={handleChange} className="w-4 h-4 text-primary rounded" />
+                            <span className="text-sm text-slate-600">Exibir na Grade Rápida (PDV)</span>
+                        </label>
+
+                        <button type="submit" disabled={loading} className={`mt-2 font-bold py-3 px-4 rounded-lg shadow-lg transition-all flex justify-center items-center gap-2 active:scale-95 text-white ${modoEdicao ? 'bg-blue-600 hover:bg-blue-700 shadow-blue-500/30' : 'bg-primary hover:bg-primary-dark shadow-primary/30'}`}>
+                            {loading ? 'Salvando...' : modoEdicao ? <><Save size={20} /> SALVAR ALTERAÇÕES</> : <><Plus size={20} /> CADASTRAR PRODUTO</>}
+                        </button>
+                    </form>
+                </div>
+
+                {/* DIREITA: Lista */}
+                <div className="flex-1 bg-white rounded-xl shadow-sm border border-slate-200 flex flex-col overflow-hidden min-h-[300px]">
+                    <div className="p-4 border-b border-slate-200 bg-slate-50 flex flex-col sm:flex-row justify-between items-center gap-3">
+                        <h3 className="font-bold text-slate-700">Produtos Recentes</h3>
+                        <div className="relative w-full sm:w-64">
+                            <Search size={18} className="absolute left-3 top-2.5 text-slate-400" />
+                            <input
+                                placeholder="Filtrar..."
+                                className="w-full pl-10 pr-4 py-2 border border-slate-300 rounded-lg text-sm focus:outline-primary focus:border-primary transition-all"
+                            />
+                        </div>
+                    </div>
+
+                    <div className="flex-1 overflow-y-auto scrollbar-thin">
+                        <table className="w-full text-left border-collapse">
+                            <thead className="bg-slate-50 sticky top-0 shadow-sm z-10">
+                                <tr>
+                                    <th className="p-4 text-sm font-semibold text-slate-600">Produto</th>
+                                    <th className="p-4 text-sm font-semibold text-slate-600">Preço Base</th>
+                                    <th className="p-4 text-sm font-semibold text-slate-600">Status</th>
+                                    <th className="p-4 text-sm font-semibold text-slate-600 text-right">Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody className="divide-y divide-slate-100">
+                                {produtos.map((prod) => {
+                                    // Verifica promoção visualmente
+                                    const emOferta = prod.precoPromocional && new Date(prod.fimPromocao) >= new Date().setHours(0, 0, 0, 0);
+
+                                    return (
+                                        <tr key={prod.id} className={`hover:bg-slate-50 transition-colors ${emOferta ? 'bg-red-50/30' : ''}`}>
+                                            <td className="p-4">
+                                                <div className="font-medium text-dark-text">{prod.nome}</div>
+                                                <div className="text-xs text-slate-400 font-mono">#{prod.codigo}</div>
+                                            </td>
+
+                                            <td className="p-4">
+                                                {emOferta ? (
+                                                    <div className="flex flex-col">
+                                                        <span className="text-xs text-slate-400 line-through">R$ {prod.preco.toFixed(2)}</span>
+                                                        <span className="font-bold text-red-600 text-lg">R$ {prod.precoPromocional.toFixed(2)}</span>
+                                                    </div>
+                                                ) : (
+                                                    <span className="font-bold text-green-600">R$ {prod.preco.toFixed(2)}</span>
+                                                )}
+                                            </td>
+
+                                            <td className="p-4">
+                                                {emOferta && (
+                                                    <span className="inline-flex items-center gap-1 px-2 py-1 rounded text-xs font-bold bg-red-100 text-red-600 border border-red-200">
+                                                        <Tag size={12} /> Oferta até {new Date(prod.fimPromocao).toLocaleDateString()}
+                                                    </span>
+                                                )}
+                                                {prod.favorito && !emOferta && (
+                                                    <span className="inline-flex items-center gap-1 px-2 py-1 rounded text-xs font-bold bg-slate-100 text-slate-600">
+                                                        <LayoutGrid size={12} /> Grade
+                                                    </span>
+                                                )}
+                                            </td>
+
+                                            <td className="p-4 text-right flex justify-end gap-2">
+                                                <button onClick={() => iniciarEdicao(prod)} className="p-2 text-blue-500 hover:bg-blue-50 rounded transition-colors" title="Editar">
+                                                    <Edit size={18} />
+                                                </button>
+                                                <button onClick={() => deletarProduto(prod.id)} className="p-2 text-slate-300 hover:text-red-500 hover:bg-red-50 rounded transition-colors" title="Excluir">
+                                                    <Trash2 size={18} />
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    );
+                                })}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+}
