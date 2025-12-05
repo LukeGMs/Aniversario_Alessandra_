@@ -379,34 +379,40 @@
 </html>
 </h1>
 </head>
-<style>
-		/* Estilo para o bloco que envolve o link do vídeo */
-.bloco-video-link {
-    background-color: #ffe0e0; /* Fundo do bloco em vermelho bem clarinho */
-    border: 2px solid #ff0000; /* Borda vermelha sólida */
-    padding: 15px 20px;
-    margin: 10px auto; /* Garante que o bloco fique centralizado */
-    max-width: fit-content; /* Faz o bloco se ajustar ao tamanho do link */
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+		<body>
+    <h1>
+		<style>
+			/* 1. KEYFRAMES: Animação de Mover (move horizontalmente para frente e para trás) */
+@keyframes mover {
+    0% { transform: translateX(0); }
+    50% { transform: translateX(10px); } /* Move 7 pixels para a direita */
+    100% { transform: translateX(0); }
 }
 
-/* Estilo para o link (escrita) dentro do bloco */
-.bloco-video-link .titulo-animado {
-    color: #ff0000 !important; /* Garante que a escrita seja vermelha */
-    font-size: 1.2em; /* Deixa a fonte um pouco maior para destacar */
+/* 2. ESTILO DA ESCRITA (ONDE A ANIMAÇÃO É APLICADA) */
+.titulo-animado {
+    /* Aplica a animação de mover: 1.5s de duração, infinito, vai e volta */
+    animation: mover 1.0s infinite alternate; 
+    
+    /* ESSENCIAL: Permite que o 'transform' funcione no texto */
+    display: inline-block; 
+    
+    /* Garante a aparência original (removendo a decoração de link) */
+    text-decoration: none; 
+    color: #333; /* Cor preta/cinza escura, ajuste se necessário */
     font-weight: bold;
 }
-		<div style="text-align: center; margin-top: 50px;">
-    <div class="bloco-video-link">
-        <a href="https://youtu.be/_gGI0N11lzw?si=V9_iNPA4_orVpSxi" 
-           target="_blank" 
-           class="titulo-animado">
-            <i class="fab fa-youtube"></i> Aqui está seu Video
-        </a>
-    </div>
-</div>
 	</style>
+		<a href="https://youtu.be/_gGI0N11lzw?si=V9_iNPA4_orVpSxi" 
+           target="_blank" 
+           class="titulo-animado">
+			Aqui está seu Video
+        </a>        
+    </h1>
+</body>
+</html>
+</h1>
+</head>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -495,3 +501,4 @@
     </script>
 </body>
 </html>
+
