@@ -385,14 +385,14 @@
 			/* 1. KEYFRAMES: Animação de Mover (move horizontalmente para frente e para trás) */
 @keyframes mover {
     0% { transform: translateX(0); }
-    50% { transform: translateX(-10px); } /* <-- AGORA MOVE 10 PIXELS PARA A ESQUERDA */
+    50% { transform: translateX(-110px); } /* <-- AGORA MOVE 10 PIXELS PARA A ESQUERDA */
     100% { transform: translateX(0); }
 }
 
 /* 2. ESTILO DA ESCRITA (ONDE A ANIMAÇÃO É APLICADA) */
 .titulo-animado {
     /* Aplica a animação de mover: 1.5s de duração, infinito, vai e volta */
-   animation: mover-esquerda 1.0s infinite alternate !important;
+   animation: mover 1.0s infinite alternate;
     
     /* ESSENCIAL: Permite que o 'transform' funcione no texto */
     display: inline-block; 
@@ -501,6 +501,7 @@
     </script>
 </body>
 </html>
+
 
 
 
